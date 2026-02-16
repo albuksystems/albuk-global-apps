@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albuk Global - Simple Business Apps for Kenyan Retailers</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1NX9Z6HKE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H1NX9Z6HKE');
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        h1 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #4f46e5;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-success {
+            background: #10b981;
+            color: white;
+            box-shadow: 0 10px 30px rgba(16,185,129,0.3);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+        }
+        
+        /* Problem/Solution Section */
+        .problem-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .problem-card {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .problem-card h3 {
+            color: #dc2626;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        /* Apps Section */
+        .apps-section {
+            padding: 80px 20px;
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 50px;
+        }
+        
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+        
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .app-icon {
+            font-size: 48px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+        }
+        
+        .app-title {
+            flex: 1;
+        }
+        
+        .app-title h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+        
+        .app-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: #4f46e5;
+            font-family: 'Inter', monospace;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .pricing-card {
+            background: white;
+            color: #1e293b;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .price-tag {
+            font-size: 64px;
+            font-weight: 900;
+            color: #4f46e5;
+            margin: 20px 0;
+        }
+        
+        .price-save {
+            background: #dcfce7;
+            color: #166534;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .price-breakdown {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+        
+        .price-breakdown div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .price-breakdown div:last-child {
+            border: none;
+            font-weight: 700;
+            color: #4f46e5;
+            font-size: 18px;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            padding: 60px 20px;
+            background: #fefce8;
+            border-top: 4px solid #eab308;
+            border-bottom: 4px solid #eab308;
+        }
+        
+        .demo-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .demo-badge {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        /* How to Buy */
+        .buy-section {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            background: #4f46e5;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0 auto 20px;
+        }
+        
+        /* FAQ */
+        .faq-section {
+            padding: 80px 20px;
+            background: #f8fafc;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #4f46e5;
+        }
+        
+        .faq-item h3 {
+            margin-bottom: 10px;
+            color: #4f46e5;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            .subtitle { font-size: 16px; }
+            .section-title { font-size: 28px; }
+            .app-header { flex-direction: column; text-align: center; }
+            .price-tag { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">ALBUK GLOBAL</div>
+            <h1>Simple Apps for Kenyan Retailers</h1>
+            <p class="subtitle">Track credit, manage suppliers, never lose money. Works offline. No monthly fees.</p>
+            <a href="#pricing" class="btn btn-primary">Get Started - KSh 2,800</a>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">Every Shop Owner Knows These Problems</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>😰 Forgetting Who Owes You</h3>
+                    <p>Customers buy on credit, you forget to collect. Money disappears.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>💸 Surprise Debts from Suppliers</h3>
+                    <p>Supplier shows up demanding payment. You forgot you owed them.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🍾 Lost Bottle Deposits</h3>
+                    <p>Customers take bottles, never return them. Your money walks away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps-section">
+        <div class="container">
+            <h2 class="section-title">3 Simple Apps. All Your Problems Solved.</h2>
+            
+            <!-- Credit Control -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">💰</div>
+                    <div class="app-title">
+                        <h3>Credit Control</h3>
+                        <p style="color: #64748b;">Never forget who owes you money</p>
+                    </div>
+                    <div class="app-price">KSh 1,500</div>
+                </div>
+                <ul class="features">
+                    <li><strong>Record sales in 10 seconds</strong> - Customer name, amount, done</li>
+                    <li><strong>Track payments automatically</strong> - See exactly who owes what</li>
+                    <li><strong>Send WhatsApp reminders</strong> - One tap, professional message sent</li>
+                    <li><strong>Get paid faster</strong> - Customers pay when reminded</li>
+                    <li><strong>Works offline</strong> - No internet? No problem</li>
+                    <li><strong>Backup your data</strong> - Never lose records</li>
+                </ul>
+                <p style="background: #eff6ff; padding: 15px; border-radius: 8px; border-left: 4px solid #3b82f6; margin-top: 20px;">
+                    <strong>Perfect for:</strong> Any shop that gives credit to customers. Stop losing money you forgot to collect.
+                </p>
+            </div>
+
+            <!-- Purchase Pro -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">📊</div>
+                    <div class="app-title">
+                        <h3>Purchase Pro v4</h3>
+                        <p style="color: #64748b;">Track what you owe suppliers</p>
+                    </div>
+                    <div class="app-price">KSh 1,200</div>
+                </div>
+                <ul class="features">
+                    <li><strong>Track morning deliveries</strong> - What arrived, from who, how much</li>
+                    <li><strong>Plan future purchases</strong> - Never forget what to buy tomorrow</li>
+                    <li><strong>See unpaid debts</strong> - Know exactly what you owe each supplier</li>
+                    <li><strong>Mark as paid</strong> - Clear debts with one tap</li>
+                    <li><strong>Daily cash reports</strong> - Know your cash position every evening</li>
+                    <li><strong>Supplier contacts</strong> - Phone numbers and payment details in one place</li>
+                </ul>
+                <p style="background: #eff6ff; padding: 15px; border-radius: 8px; border-left: 4px solid #3b82f6; margin-top: 20px;">
+                    <strong>Perfect for:</strong> Shops that buy from suppliers on credit. Avoid surprise debt collectors.
+                </p>
+            </div>
+
+            <!-- Bottles Manager -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">🍾</div>
+                    <div class="app-title">
+                        <h3>Bottles Manager</h3>
+                        <p style="color: #64748b;">Track bottle deposits</p>
+                    </div>
+                    <div class="app-price">KSh 800</div>
+                </div>
+                <ul class="features">
+                    <li><strong>Issue bottles to customers</strong> - Name, phone, quantity, deposit</li>
+                    <li><strong>Track who has what</strong> - See all outstanding bottles at a glance</li>
+                    <li><strong>Send return reminders</strong> - WhatsApp message in one tap</li>
+                    <li><strong>Mark as returned</strong> - Clear records when bottles come back</li>
+                    <li><strong>See total deposits held</strong> - Know how much is outside your shop</li>
+                    <li><strong>History tracking</strong> - See all returns over time</li>
+                </ul>
+                <p style="background: #eff6ff; padding: 15px; border-radius: 8px; border-left: 4px solid #3b82f6; margin-top: 20px;">
+                    <strong>Perfect for:</strong> Shops selling sodas, beers, water in returnable bottles. Stop losing deposit money.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Special Bundle Price</h2>
+            <div class="pricing-card">
+                <div class="price-save">SAVE KSh 700</div>
+                <div class="price-tag">KSh 2,800</div>
+                <p style="font-size: 18px; margin-bottom: 30px;">Get All 3 Apps - One-Time Payment</p>
+                
+                <div class="price-breakdown">
+                    <div>
+                        <span>Credit Control</span>
+                        <span>KSh 1,500</span>
+                    </div>
+                    <div>
+                        <span>Purchase Pro v4</span>
+                        <span>KSh 1,200</span>
+                    </div>
+                    <div>
+                        <span>Bottles Manager</span>
+                        <span>KSh 800</span>
+                    </div>
+                    <div style="padding-top: 15px; margin-top: 15px; border-top: 2px solid #cbd5e1;">
+                        <span>Total if bought separately</span>
+                        <span style="text-decoration: line-through; color: #94a3b8;">KSh 3,500</span>
+                    </div>
+                    <div>
+                        <span>Bundle Price</span>
+                        <span>KSh 2,800</span>
+                    </div>
+                </div>
+                
+                <p style="margin: 30px 0 20px; color: #64748b; font-size: 14px;">✅ Lifetime access • ✅ No monthly fees • ✅ All future updates free</p>
+                
+                <a href="https://wa.me/254768789382?text=Hi!%20I%20want%20to%20buy%20Albuk%20Global%20Apps%20Bundle%20(KSh%202,800)" class="btn btn-whatsapp" style="font-size: 18px; width: 100%; justify-content: center; margin-bottom: 15px;">
+                    <span>💬</span> Buy Now via WhatsApp
+                </a>
+                
+                <p style="font-size: 13px; color: #94a3b8;">Reply within 5 minutes • Download links sent immediately after payment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <div class="demo-content">
+            <div class="demo-badge">🎯 TRY BEFORE YOU BUY</div>
+            <h2 style="font-size: 32px; margin-bottom: 15px;">Test with FREE 7-Day Demo</h2>
+            <p style="font-size: 18px; margin-bottom: 30px; color: #78716c;">See how it works in your shop. No payment required to try.</p>
+            <a href="#demo-downloads" class="btn btn-primary" style="background: #1e293b;">Download Free Demo</a>
+            <p style="margin-top: 20px; font-size: 14px; color: #78716c;">⏱️ Demo expires in 7 days • 🔒 Some features locked • ✅ Full version unlocks everything</p>
+        </div>
+    </section>
+
+    <!-- How to Buy -->
+    <section class="buy-section">
+        <div class="container">
+            <h2 class="section-title">How to Buy (Takes 2 Minutes)</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Click "Buy Now"</h3>
+                    <p>WhatsApp opens with message ready</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Send M-Pesa</h3>
+                    <p>We reply with M-Pesa details</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Download Links</h3>
+                    <p>Sent within 5 minutes</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Start Using</h3>
+                    <p>Works immediately, no setup</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/254768789382?text=Hi!%20I%20want%20to%20buy%20Albuk%20Global%20Apps%20Bundle%20(KSh%202,800)" class="btn btn-success" style="font-size: 20px;">
+                    Get Started Now - KSh 2,800
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+            
+            <div class="faq-item">
+                <h3>Do I need internet to use the apps?</h3>
+                <p>No! Apps work 100% offline. Internet only needed for WhatsApp features and backups.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Is there a monthly fee?</h3>
+                <p>No. Pay KSh 2,800 once. Use forever. No subscriptions, no hidden costs.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What if I don't like it?</h3>
+                <p>Try the FREE demo first for 7 days. If you buy and it doesn't work for you within 7 days, full refund.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How do I install it?</h3>
+                <p>Just download the HTML files and open in Chrome. No installation needed. Works on any Android phone.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I use on multiple phones?</h3>
+                <p>Yes! Use on your phone, staff phone, computer. No limits.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What about updates?</h3>
+                <p>All future updates are FREE forever. We'll send you new versions as we improve the apps.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How do I get support?</h3>
+                <p>WhatsApp us anytime. We reply within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="padding: 80px 20px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 20px;">Stop Losing Money Today</h2>
+            <p style="font-size: 20px; margin-bottom: 40px; opacity: 0.95;">Join hundreds of Kenyan shop owners using Albuk Global Apps</p>
+            <a href="https://wa.me/254768789382?text=Hi!%20I%20want%20to%20buy%20Albuk%20Global%20Apps%20Bundle%20(KSh%202,800)" class="btn btn-whatsapp" style="font-size: 20px;">
+                <span>💬</span> Buy Now - KSh 2,800
+            </a>
+            <p style="margin-top: 20px; opacity: 0.8; font-size: 14px;">Or <a href="#demo-downloads" style="color: white; text-decoration: underline;">try FREE demo first</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="font-size: 18px; margin-bottom: 10px; font-weight: 700;">ALBUK GLOBAL</p>
+            <p style="opacity: 0.8;">Simple Business Apps for Kenyan Retailers</p>
+            <p style="margin-top: 20px; opacity: 0.6; font-size: 14px;">© 2026 Albuk Global. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
